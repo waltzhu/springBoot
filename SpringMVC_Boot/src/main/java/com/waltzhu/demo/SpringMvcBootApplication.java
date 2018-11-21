@@ -12,10 +12,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * (exclude={DataSourceAutoConfiguration.class,})
  */
 
-@SpringBootApplication
+@SpringBootApplication 
 public class SpringMvcBootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringMvcBootApplication.class, args);
+		SpringApplication.run(SpringMvcBootApplication.class, args);//负责启动并引导应用程序
 	}
 }
