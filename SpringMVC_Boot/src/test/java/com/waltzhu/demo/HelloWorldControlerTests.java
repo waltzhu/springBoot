@@ -25,9 +25,22 @@ public class HelloWorldControlerTests {
         mvc = MockMvcBuilders.standaloneSetup(new helloWordController()).build();
     }
 	 
-	@Test
 	public void testHelloWorld() throws Exception{
 		   String url = "/helloWorld";//访问url
+	        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(url).accept(MediaType.APPLICATION_JSON))
+	                .andReturn();
+	        //访问返回状态
+	        int status = mvcResult.getResponse().getStatus();
+	        //接口返回结果
+	        String content = mvcResult.getResponse().getContentAsString();
+	        //打印结果和状态
+	        System.out.println(status);
+	        System.out.println(content);
+	}
+	
+	@Test
+	public void testgetUser() throws Exception{
+		   String url = "/getUser";//访问url
 	        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(url).accept(MediaType.APPLICATION_JSON))
 	                .andReturn();
 	        //访问返回状态
