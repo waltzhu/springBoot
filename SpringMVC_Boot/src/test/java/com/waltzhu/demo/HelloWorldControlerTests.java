@@ -49,6 +49,6 @@ public class HelloWorldControlerTests {
 	        String content = mvcResult.getResponse().getContentAsString();
 	        //打印结果和状态
 	        System.out.println(status);
-	        System.out.println(content);
+	        System.out.println(content);  
 	}
 }
