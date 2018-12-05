@@ -16,8 +16,21 @@
             http://www.springframework.org/schema/context 
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
        <bean id="testService" class="com.waltzhu.demo.TestService"></bean><!-- 测试自定义XML -->
-       
- 
+   
+  <!-- 自定义cookiename,否则跨域访问后，原来的session就被干掉了。浏览器又会生成新的SESSIONID
+		  即：访问a,产生sessionid1,
+		   访问b,产生sessionid2
+		   再访问a,产生sessionid3,这里希望还是sessionid1,所以自定义cookiename，防止覆盖，因为默认的名字都叫sessionid
+   -->   
+ <bean id="sessionRepositoryFilter"             
+      class="org.springframework.session.web.http.SessionRepositoryFilter">
+  <constructor-arg ref="sessionRepository"/>
+  <property name="httpSessionStrategy">
+    <bean class="org.springframework.session.web.http.CookieHttpSessionStrategy">
+      <property name="cookieName" value="myCookieName" />
+    </bean>
+  </property>
+</bean>
        
        
 </beans> 

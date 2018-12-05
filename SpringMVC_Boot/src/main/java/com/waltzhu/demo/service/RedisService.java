@@ -38,7 +38,7 @@ public void setRedisTemplate(RedisTemplate redisTemplate) {
 	     * @param value
 	     * @return
 	     */
-	    public boolean set(final String key, Object value) {
+	    public boolean set(String key, Object value) {
 	        boolean result = false;
 	        try {
 	            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
@@ -55,7 +55,7 @@ public void setRedisTemplate(RedisTemplate redisTemplate) {
 	     * @param value
 	     * @return
 	     */
-	    public boolean set(final String key, Object value, Long expireTime) {
+	    public boolean set(  String key, Object value, Long expireTime) {
 	        boolean result = false;
 	        try {
 	            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();

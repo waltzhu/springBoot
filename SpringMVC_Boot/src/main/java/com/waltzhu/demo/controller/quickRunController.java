@@ -25,8 +25,8 @@ public class quickRunController {
 	public String main(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String sessionId = (String) session.getAttribute("sessionId");
+		System.out.println("main sessionId:" + sessionId);
 		if (null != sessionId) { // sessionId²»Îª¿Õ
-			System.out.println("main sessionId:" + sessionId);
 			return "main";
 		} else { // sessionIdÎª¿Õ
 			return "login";
